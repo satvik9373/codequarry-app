@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import { ClerkProvider,SignedIn, SignedOut } from '@clerk/clerk-expo';
 import LoginScreen from './App/Screen/LoginScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigation from './App/Navigations/TabNavigation';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -15,7 +17,9 @@ export default function App() {
     <View style={styles.container}>
      
      <SignedIn>
-          <Text>You are Signed in</Text>
+         <NavigationContainer>
+          <TabNavigation/>
+         </NavigationContainer>
         </SignedIn>
         <SignedOut>
         <LoginScreen/>
@@ -29,6 +33,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-   
+   marginTop:20,
   },
 });
